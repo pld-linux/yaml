@@ -1,12 +1,12 @@
 Summary:	A C library for parsing and emitting YAML
 Summary(pl.UTF-8):	Biblioteka C do analizy i wytwarzania YAML-a
 Name:		yaml
-Version:	0.1.5
+Version:	0.1.6
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://pyyaml.org/download/libyaml/%{name}-%{version}.tar.gz
-# Source0-md5:	24f6093c1e840ca5df2eb09291a1dbf1
+# Source0-md5:	5fe00cda18ca5daeb43762b80c38e06e
 URL:		http://pyyaml.org/wiki/LibYAML
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -21,7 +21,7 @@ YAML 1.1.
 Summary:	Header files for yaml library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki yaml
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for yaml library.
@@ -33,7 +33,7 @@ Pliki nagłówkowe biblioteki yaml.
 Summary:	Static yaml library
 Summary(pl.UTF-8):	Statyczna biblioteka yaml
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static yaml library.
