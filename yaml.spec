@@ -1,13 +1,13 @@
 Summary:	A C library for parsing and emitting YAML
 Summary(pl.UTF-8):	Biblioteka C do analizy i wytwarzania YAML-a
 Name:		yaml
-Version:	0.1.7
+Version:	0.2.1
 Release:	1
 License:	MIT
 Group:		Libraries
-Source0:	http://pyyaml.org/download/libyaml/%{name}-%{version}.tar.gz
-# Source0-md5:	1abf45bd3a96374fa55ca63b32f9f2f9
-URL:		http://pyyaml.org/wiki/LibYAML
+Source0:	https://pyyaml.org/download/libyaml/%{name}-%{version}.tar.gz
+# Source0-md5:	72724b9736923c517e5a8fc6757ef03d
+URL:		https://pyyaml.org/wiki/LibYAML
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
