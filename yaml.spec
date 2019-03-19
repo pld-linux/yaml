@@ -1,13 +1,18 @@
 Summary:	A C library for parsing and emitting YAML
 Summary(pl.UTF-8):	Biblioteka C do analizy i wytwarzania YAML-a
 Name:		yaml
-Version:	0.2.1
+Version:	0.2.2
 Release:	1
 License:	MIT
 Group:		Libraries
-Source0:	https://pyyaml.org/download/libyaml/%{name}-%{version}.tar.gz
-# Source0-md5:	72724b9736923c517e5a8fc6757ef03d
+#Source0Download: https://github.com/yaml/libyaml/releases
+Source0:	https://github.com/yaml/libyaml/archive/%{version}/libyaml-%{version}.tar.gz
+# Source0-md5:	2ad4119a57f94739cc39a1b482c81264
 URL:		https://pyyaml.org/wiki/LibYAML
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake >= 1:1.9
+BuildRequires:	doxygen
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,9 +47,14 @@ Static yaml library.
 Statyczna biblioteka yaml.
 
 %prep
-%setup -q
+%setup -q -n libyaml-%{version}
 
 %build
+%{__libtoolize}
+%{__aclocal} -I config
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 %{__make}
 
@@ -53,6 +63,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libyaml.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -69,7 +82,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libyaml.so
-%{_libdir}/libyaml.la
 %{_includedir}/yaml.h
 %{_pkgconfigdir}/yaml-0.1.pc
 
